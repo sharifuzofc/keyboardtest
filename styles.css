@@ -1,17 +1,18 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: #f0f0f0; /* Light background color */
+  color: #333; /* Dark text for readability */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   transition: background-color 0.3s, color 0.3s;
+  box-sizing: border-box;
 }
 
 .dark-mode {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
+  background-color: #121212; /* Darker background for dark mode */
+  color: #f0f0f0; /* Light text for dark mode */
 }
 
 .keyboard {
@@ -38,7 +39,7 @@ body {
 }
 
 .key.pressed {
-  background-color: #4caf50;
+  background-color: #4caf50; /* Green color when key is pressed */
   color: white;
 }
 
@@ -49,12 +50,18 @@ body {
 }
 
 .mouse-button {
-  padding: 20px 40px;
+  padding: 12px 20px;
   background-color: #fff;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc; /* Button stroke */
   border-radius: 8px;
   font-size: 18px;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mouse-button:hover {
+  border-color: #4caf50; /* Stroke color on hover */
+  box-shadow: 0 0 10px 2px rgba(0, 255, 0, 0.5); /* Glow effect */
 }
 
 .mouse-button.pressed {
@@ -70,9 +77,35 @@ body {
 .toggle-dark {
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #333;
+  background-color: #333; /* Dark background for the button */
   color: white;
-  border: none;
+  border: 2px solid #ccc; /* Button stroke */
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-dark:hover {
+  border-color: #4caf50; /* Stroke color on hover */
+  box-shadow: 0 0 10px 2px rgba(0, 255, 0, 0.5); /* Glow effect */
+}
+
+.dark-mode .toggle-dark {
+  background-color: #555; /* Darker button background in dark mode */
+  color: #f0f0f0; /* Light color text in dark mode */
+}
+
+/* Ensuring elements are visible in dark mode */
+.dark-mode .key, .dark-mode .mouse-button, .dark-mode .toggle-dark {
+  background-color: #333; /* Dark background for buttons in dark mode */
+  color: #f0f0f0; /* Light color for text */
+  border: 1px solid #555; /* Slightly lighter border in dark mode */
+}
+
+.dark-mode .key.pressed {
+  background-color: #4caf50; /* Keep pressed key highlighted with green */
+}
+
+.dark-mode .mouse-button.pressed {
+  background-color: #4caf50; /* Keep pressed mouse button highlighted with green */
 }
